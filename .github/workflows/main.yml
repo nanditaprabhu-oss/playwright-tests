@@ -21,7 +21,7 @@ jobs:
       run: npm ci # Install project dependencies
 
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps # Install necessary browsers
+      run: headless=true npx playwright install --with-deps # Install necessary browsers
 
     - name: Run Playwright tests
       run: npx playwright test # Execute your Playwright tests
