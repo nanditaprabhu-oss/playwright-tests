@@ -21,10 +21,10 @@ jobs:
       run: npm ci # Install project dependencies
 
     - name: Install Playwright Browsers
-      run: headless=true npx playwright install --with-deps # Install necessary browsers
+      run:  npx playwright install --with-deps # Install necessary browsers
 
     - name: Run Playwright tests
-      run: npx playwright test # Execute your Playwright tests
+      run: npx playwright test --headless # Execute your Playwright tests
 
     # Optional: Upload HTML report as an artifact
     - name: Upload Playwright Report
