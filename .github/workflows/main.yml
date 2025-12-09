@@ -10,6 +10,10 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        shard: [1, 2, 3, 4]
 
     steps:
     - uses: actions/checkout@v4 # Checkout the repository code
@@ -24,7 +28,7 @@ jobs:
       run:  npx playwright install --with-deps # Install necessary browsers
 
     - name: Run Playwright tests
-      run: npx playwright test # Execute your Playwright tests
+      run: npx playwright test --shard=${{ matrix.shard }}/4 --workers=4  # Execute your Playwright tests
 
     # Optional: Upload HTML report as an artifact
     - name: Upload Playwright Report
