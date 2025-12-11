@@ -13,8 +13,7 @@ jobs:
     
     strategy:
       matrix:
-        shard: [1, 2, 3, 4]
-
+        shard: [1]
     steps:
     - uses: actions/checkout@v4 # Checkout the repository code
     - uses: actions/setup-node@v4 # Set up Node.js environment
@@ -28,7 +27,7 @@ jobs:
       run:  npx playwright install --with-deps # Install necessary browsers
 
     - name: Run Playwright tests
-      run: npx playwright test --shard=${{ matrix.shard }}/4 --workers=4  # Execute your Playwright tests
+      run: npx playwright test -workers=2  # Execute your Playwright tests
 
     # Optional: Upload HTML report as an artifact
     - name: Upload Playwright Report
