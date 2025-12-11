@@ -27,13 +27,13 @@ jobs:
       run:  npx playwright install --with-deps # Install necessary browsers
 
     - name: Run Playwright tests
-      run: npx playwright test -workers=2  # Execute your Playwright tests
+      run: npx playwright test  # Execute your Playwright tests
 
     # Optional: Upload HTML report as an artifact
     - name: Upload Playwright Report
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: playwright-report-${{ matrix.shard }}
+        name: playwright-report
         path: playwright-report
         retention-days: 30
