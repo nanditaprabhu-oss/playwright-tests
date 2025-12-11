@@ -116,13 +116,13 @@ export const credentials: Credentials = {
   // { username: 'Darren.Mowbray@rentokil-initial.com', password: 'kim' },
  
 
-  { username: 'lynne.arnold@rentokil-initial.com', password: 'kim' },
-  { username: 'amy.cahill@rentokil.com', password: 'kim' },
-  { username: 'anna.davies@rentokil-initial.com', password: 'kim' },
-  { username: 'kim.sherwood@rentokil.com', password: 'kim' },
-  { username: 'maria.mcguire@rentokil-initial.com', password: 'kim' },
-  { username: 'emma.buttery@rentokil-initial.com', password: 'kim' },
-  { username: 'emma.atkins@rentokil-initial.com', password: 'kim' },
+ // { username: 'lynne.arnold@rentokil-initial.com', password: 'kim' },
+ //{ username: 'amy.cahill@rentokil.com', password: 'kim' },
+ // { username: 'anna.davies@rentokil-initial.com', password: 'kim' },
+//  { username: 'kim.sherwood@rentokil.com', password: 'kim' },
+//  { username: 'maria.mcguire@rentokil-initial.com', password: 'kim' },
+//  { username: 'emma.buttery@rentokil-initial.com', password: 'kim' },
+//  { username: 'emma.atkins@rentokil-initial.com', password: 'kim' },
   { username: 'rachel.rochell@rentokil.com', password: 'kim' },
   { username: 'anne.beddows@rentokil-initial.com', password: 'kim' }
 ]
