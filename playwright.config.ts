@@ -22,7 +22,7 @@ export default defineConfig({
   retries: 2, // optional, helps reduce flakiness
   workers: 2,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
- reporter: ['html']
+ reporter: 'html'
 
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
