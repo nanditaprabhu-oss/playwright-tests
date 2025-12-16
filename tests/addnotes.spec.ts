@@ -76,7 +76,7 @@ credentials.users.forEach((user, index) => {
       //Open All debtors list screen
       await page.getByText('All debtors').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All debtors');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 2500000});
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 60000});
       const cellLocator = page.getByRole('gridcell').filter({ hasText: /.+/ });
 
       // Assert that at least one gridcell with content is visible on the page.
