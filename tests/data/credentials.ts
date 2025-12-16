@@ -25,15 +25,15 @@ export const credentials: Credentials = {
   // { username: 'Tracey.Marshall@rentokil-initial.com', password: 'kim' },
   // { username: 'Penny.Harris@rentokil-initial.com', password: 'kim' },
 
-   { username: 'Lesley.Hall@rentokil-initial.com', password: 'kim' },
+  // { username: 'Lesley.Hall@rentokil-initial.com', password: 'kim' },
   // { username: 'Bijay.Assi@rentokil-initial.com', password: 'kim' },
   // { username: 'Lisa.Andrews@rentokil-initial.com', password: 'kim' },
   // { username: 'ssc-manualbilling-uk@rentokil-initial.com', password: 'kim' },
  //  { username: 'Hayley.Walker@rentokil-initial.com', password: 'kim' },
-   { username: 'Jonathan.Morgan@rentokil-initial.com', password: 'kim' },
-   { username: 'helen.l.smith@rentokil-initial.com', password: 'kim' },
-   { username: 'Ruth.Jones@Rentokil-Initial.com', password: 'kim' },
-   { username: 'ssc-billingandadmin-uk@rentokil-initial.com', password: 'kim' },
+ //  { username: 'Jonathan.Morgan@rentokil-initial.com', password: 'kim' },
+  // { username: 'helen.l.smith@rentokil-initial.com', password: 'kim' },
+  // { username: 'Ruth.Jones@Rentokil-Initial.com', password: 'kim' },
+  // { username: 'ssc-billingandadmin-uk@rentokil-initial.com', password: 'kim' },
   // { username: 'cashqueries@rentokil-initial.com', password: 'kim' },
 
   //  { username: 'pardip.sangha@rentokil-initial.com', password: 'kim' },
@@ -58,7 +58,7 @@ export const credentials: Credentials = {
   // { username: 'tania.whitcombe@rentokil-initial.com', password: 'kim' },
   // { username: 'nick.hartland@rentokil-initial.com', password: 'kim' },
 
-   { username: 'elaine.firth@rentokil-initial.com', password: 'kim' },
+  // { username: 'elaine.firth@rentokil-initial.com', password: 'kim' },
   // { username: 'kelly.scholes@rentokil-initial.com', password: 'kim' },
   // { username: 'triss.stacey@rentokil-initial.com', password: 'kim' },
   // { username: 'James.Davidson@rentokil-initial.com', password: 'kim' },
@@ -91,7 +91,7 @@ export const credentials: Credentials = {
   // { username: 'barbara.perry@rentokil.com', password: 'kim' },
   // { username: 'james.1.taylor@rentokil-initial.com', password: 'kim' },
   // { username: 'emma.montero@rentokil-initial.com', password: 'kim' },
-  // { username: 'daniel.1.williams@rentokil-initial.com', password: 'kim' },
+  { username: 'daniel.1.williams@rentokil-initial.com', password: 'kim' },
   
 
   // { username: 'michael.hawkes@rentokil.com', password: 'kim' },
