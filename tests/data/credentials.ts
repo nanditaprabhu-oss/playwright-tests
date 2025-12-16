@@ -14,7 +14,7 @@ export const credentials: Credentials = {
 
   users: [
   // {username: 'Anduin.Wrynn@rtkperf.com',password: 'kim'},
-   { username: 'hardip.dhadwal@rentokil-initial.com', password: 'kim' },
+  // { username: 'hardip.dhadwal@rentokil-initial.com', password: 'kim' },
   // { username: 'sarah-anne.fitzsimmons@rentokil-initial.com', password: 'kim' },
   // { username: 'yvonne.leach@rentokil-initial.com', password: 'kim' },
   // { username: 'sonia.gill@rentokil-initial.com', password: 'kim' },
