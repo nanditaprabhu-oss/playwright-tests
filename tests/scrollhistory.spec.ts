@@ -127,29 +127,7 @@ credentials.users.forEach((user, index) => {
       await page.locator('a.btn-box.close-window', { hasText: 'x' }).last().click();
     });
 
-    await test.step('Scroll through payment scheme history', async () => {
-
-      await page.getByLabel('Press Space to toggle all').check({ timeout: 90000 });
-      await page.locator('a').filter({ hasText: 'History payment schemes' }).click({ timeout: 90000 });
-
-      // Get total pages from "/11"
-      const totalPagesText = await page.locator('span.selected-debtors-number').textContent();
-      const totalPages = Number(totalPagesText?.replace('/', '').trim());
-
-      // Select the Next button
-      const nextButton = page.getByLabel('Page navigation', { exact: true }).getByLabel('Next');
-
-      for (let i = 1; i < totalPages; i++) {
-        await expect(nextButton).toBeEnabled({ timeout: 60000 });
-        await nextButton.click();
-        await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
-      }
-      await page.locator('a.btn-box.close-window', { hasText: 'x' }).last().click();
-
-    });
- 
-
-    await test.step('Scroll through payment scheme history', async () => {
+       await test.step('Scroll through payment scheme history', async () => {
 
       await page.getByLabel('Press Space to toggle all').check({ timeout: 90000 });
       await page.locator('a').filter({ hasText: 'History payment schemes' }).click({ timeout: 90000 });
@@ -198,3 +176,4 @@ credentials.users.forEach((user, index) => {
     });
   });
 });
+
