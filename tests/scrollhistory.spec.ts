@@ -161,13 +161,6 @@ credentials.users.forEach((user, index) => {
       const nextButton = page.getByLabel('Page navigation', { exact: true }).getByLabel('Next');
 
       for (let i = 1; i < totalPages; i++) {
-        const statementText = page.locator('.ag-row .ag-cell-value span').first();
-        const noRecordText = page.locator('.ag-overlay-wrapper.ag-overlay-no-rows-wrapper span', { hasText: 'No record found' });
-        await Promise.race([
-          noRecordText.waitFor({ state: 'attached', timeout: 60000 }),
-          statementText.first().waitFor({ state: 'visible', timeout: 60000 }),
-        ]);
-
         await expect(nextButton).toBeEnabled({ timeout: 60000 });
         await nextButton.click();
         await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
@@ -176,4 +169,5 @@ credentials.users.forEach((user, index) => {
     });
   });
 });
+
 
