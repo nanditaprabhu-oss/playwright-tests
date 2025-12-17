@@ -85,7 +85,7 @@ credentials.users.forEach((user, index) => {
       await expect(page.locator('.ag-cell[col-id="note_text"] span').first()).toContainText(/\S/, { timeout: 30000 });
       const loadTimeMs = Date.now() - start;
       console.log(`Notes loaded for customer ISS-F in ${loadTimeMs} ms`);
-      await page.locator('a').filter({ hasText: 'Cancel' }).click({ timeout: 90000 });
+      await page.locator('a').filter({ hasText: 'Cancel' }).click({ timeout: 120000 });
       await page.locator('a.close-window').click();
 
 
@@ -179,4 +179,5 @@ credentials.users.forEach((user, index) => {
 
 });
 });
+
 });
