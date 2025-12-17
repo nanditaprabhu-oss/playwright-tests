@@ -25,7 +25,7 @@ export const credentials: Credentials = {
   // { username: 'Tracey.Marshall@rentokil-initial.com', password: 'kim' },
   // { username: 'Penny.Harris@rentokil-initial.com', password: 'kim' },
 
-   { username: 'Lesley.Hall@rentokil-initial.com', password: 'kim' },
+ //  { username: 'Lesley.Hall@rentokil-initial.com', password: 'kim' },
   // { username: 'Bijay.Assi@rentokil-initial.com', password: 'kim' },
   // { username: 'Lisa.Andrews@rentokil-initial.com', password: 'kim' },
   // { username: 'ssc-manualbilling-uk@rentokil-initial.com', password: 'kim' },
@@ -36,7 +36,7 @@ export const credentials: Credentials = {
   // { username: 'ssc-billingandadmin-uk@rentokil-initial.com', password: 'kim' },
   // { username: 'cashqueries@rentokil-initial.com', password: 'kim' },
 
-  //  { username: 'pardip.sangha@rentokil-initial.com', password: 'kim' },
+    { username: 'pardip.sangha@rentokil-initial.com', password: 'kim' },
   //  { username: 'robert.whitehouse@rentokil-initial.com', password: 'kim' },
   //  { username: 'joanne.egginton@rentokil-initial.com', password: 'kim' },
   //  { username: 'laura.evans@rentokil-initial.com', password: 'kim' },
