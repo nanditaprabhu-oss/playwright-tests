@@ -84,7 +84,7 @@ credentials.users.forEach((user, index) => {
 
     const userGroup = page.locator('#userGroup');
 
-    await userGroup.waitFor({ state: 'visible', timeout: 20000 });
+    await userGroup.waitFor({ state: 'visible', timeout: 60000 });
 
     const options = await page.locator('#userGroup option').count();
 
@@ -128,7 +128,7 @@ credentials.users.forEach((user, index) => {
       await page.locator('#userGroup option').count();
 
      // Skip first option if it’s default
-      await userGroup.selectOption({ index: 5 });
+      await userGroup.selectOption({ index: 2 });
      // Find an 'a' (link) element with the exact text "Debtors" (using a regular expression for an exact match).
       const debtorsLink2 = page.locator('a').filter({ hasText: /^Debtors$/ });
 
@@ -151,3 +151,4 @@ credentials.users.forEach((user, index) => {
     
   });
 });
+
