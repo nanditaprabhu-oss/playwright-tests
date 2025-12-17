@@ -9,8 +9,8 @@ export interface Credentials {
 }
 
 export const credentials: Credentials = {
-  url: 'https://rtk_perf.onguardconnext.com/CreditNext/auth/login',
-  //url: 'https://vijayrtk.onguardconnext.com/CreditNext/auth/login',
+  //url: 'https://rtk_perf.onguardconnext.com/CreditNext/auth/login',
+  url: 'https://vijayrtk.onguardconnext.com/CreditNext/auth/login',
 
   users: [
   // {username: 'Anduin.Wrynn@rtkperf.com',password: 'kim'},
