@@ -10,7 +10,8 @@ export interface Credentials {
 
 export const credentials: Credentials = {
   //url: 'https://rtk_perf.onguardconnext.com/CreditNext/auth/login',
-  url: 'https://vijayrtk.onguardconnext.com/CreditNext/auth/login',
+  //url: 'https://vijayrtk.onguardconnext.com/CreditNext/auth/login',
+  url: 'https://creditnext-uk-test.rentokil-initial.com/CreditNext/auth/login',
 
   users: [
   // {username: 'Anduin.Wrynn@rtkperf.com',password: 'kim'},
@@ -25,7 +26,7 @@ export const credentials: Credentials = {
   // { username: 'Tracey.Marshall@rentokil-initial.com', password: 'kim' },
   // { username: 'Penny.Harris@rentokil-initial.com', password: 'kim' },
 
- //  { username: 'Lesley.Hall@rentokil-initial.com', password: 'kim' },
+   { username: 'robert.whitehouse@rentokil-initial.com', password: '!ozR3gxXP$umWm' },
   // { username: 'Bijay.Assi@rentokil-initial.com', password: 'kim' },
   // { username: 'Lisa.Andrews@rentokil-initial.com', password: 'kim' },
   // { username: 'ssc-manualbilling-uk@rentokil-initial.com', password: 'kim' },
@@ -36,7 +37,7 @@ export const credentials: Credentials = {
   // { username: 'ssc-billingandadmin-uk@rentokil-initial.com', password: 'kim' },
   // { username: 'cashqueries@rentokil-initial.com', password: 'kim' },
 
-    { username: 'pardip.sangha@rentokil-initial.com', password: 'kim' },
+   // { username: 'pardip.sangha@rentokil-initial.com', password: 'kim' },
   //  { username: 'robert.whitehouse@rentokil-initial.com', password: 'kim' },
   //  { username: 'joanne.egginton@rentokil-initial.com', password: 'kim' },
   //  { username: 'laura.evans@rentokil-initial.com', password: 'kim' },
