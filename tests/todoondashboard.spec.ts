@@ -6,7 +6,7 @@ const { url } = credentials;
 credentials.users.forEach((user, index) => {
     const { username, password } = user;
 
-    test(`Scroll through history - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
+    test(`Open ToDo list on dashboard - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
         test.setTimeout(200000);
 
 

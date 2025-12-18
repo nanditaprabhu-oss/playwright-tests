@@ -6,14 +6,14 @@ const { url } = credentials;
 credentials.users.forEach((user, index) => {
   const { username, password } = user;
 
-  test(`Scroll through history - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
+  test(`Open notes history for large customer groups- User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
     test.setTimeout(200000);
 
-    
+
     await test.step('Login operations', async () => {
       await page.goto(url);
 
-     // Only works with 2.6.x
+      // Only works with 2.6.x
       await page.getByRole('combobox').click();
 
       await test.step('Change login language', async () => {
@@ -57,9 +57,9 @@ credentials.users.forEach((user, index) => {
 
     // Open debtor list screen>>Go to Debtors with outstanding invoices drop down menu
 
-      await test.step('Open notes for large customer groups', async () => {
-            // Wait for the Customer group button to be visible
-      
+    await test.step('Open notes for large customer groups', async () => {
+      // Wait for the Customer group button to be visible
+
       const customergroupsLink = page.locator('a').filter({ hasText: /^Customer groups$/ });
       await customergroupsLink.waitFor({ state: 'visible', timeout: 20000 }); // 20000
       await page.waitForTimeout(5000);
@@ -68,42 +68,42 @@ credentials.users.forEach((user, index) => {
       //Open All customer groups list screen
       await page.getByText('All customer groups').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All customer groups');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 60000});
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 60000 });
 
       //Customer group 1
       const searchTerm = 'ISS-F';
       await page.getByRole('textbox').first().click({ timeout: 10000 });
       await page.getByRole('textbox').first().fill(searchTerm);
       await page.keyboard.press('Enter');
-      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => {});      
+      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => { });
       const firstRow = page.locator('.ag-center-cols-container .ag-row[row-index="0"]');
       await firstRow.waitFor({ state: 'visible', timeout: 30000 });
-      await page.getByLabel('Press Space to toggle all').check({timeout:90000});
+      await page.getByLabel('Press Space to toggle all').check({ timeout: 90000 });
       await page.waitForTimeout(300); // Wait after checkbox
-      await page.locator('a').filter({ hasText: 'Notes' }).click({timeout:90000});
+      await page.locator('a').filter({ hasText: 'Notes' }).click({ timeout: 90000 });
       const start = Date.now();
-      await expect(page.locator('.ag-cell[col-id="note_text"] span').first()).toContainText(/\S/, { timeout: 30000 });
+      await expect(page.locator('.ag-cell[col-id="note_text"] span').first()).toContainText(/\S/, { timeout: 60000 });
       const loadTimeMs = Date.now() - start;
       console.log(`Notes loaded for customer ISS-F in ${loadTimeMs} ms`);
-      await page.locator('a').filter({ hasText: 'Cancel' }).click({ timeout: 120000 });
+      await page.locator('a').filter({ hasText: 'Cancel' }).click({ timeout: 90000 });
       await page.locator('a.close-window').click();
 
 
 
-    //Customer group 2
+      //Customer group 2
       await page.getByText('All customer groups').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All customer groups');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 60000});
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 60000 });
       const searchTerm1 = 'JDW_PEST';
       await page.getByRole('textbox').first().click({ timeout: 10000 });
       await page.getByRole('textbox').first().fill(searchTerm1);
       await page.keyboard.press('Enter');
-      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 6000 }).catch(() => {});      
+      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 6000 }).catch(() => { });
       const firstRow1 = page.locator('.ag-center-cols-container .ag-row[row-index="0"]');
       await firstRow1.waitFor({ state: 'visible', timeout: 60000 });
-      await page.getByLabel('Press Space to toggle all').check({timeout:90000});
+      await page.getByLabel('Press Space to toggle all').check({ timeout: 90000 });
       await page.waitForTimeout(6000); // Wait after checkbox
-      await page.locator('a').filter({ hasText: 'Notes' }).click({timeout:90000});
+      await page.locator('a').filter({ hasText: 'Notes' }).click({ timeout: 90000 });
       const start1 = Date.now();
       await expect(page.locator('.ag-cell[col-id="note_text"] span').first()).toContainText(/\S/, { timeout: 30000 });
       const loadTimeMs1 = Date.now() - start1;
@@ -112,21 +112,21 @@ credentials.users.forEach((user, index) => {
       await page.locator('a.close-window').click();
 
 
-      
-    //Customer group 3
+
+      //Customer group 3
       await page.getByText('All customer groups').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All customer groups');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 60000});
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 60000 });
       const searchTerm2 = 'SODEXO-D';
       await page.getByRole('textbox').first().click({ timeout: 10000 });
       await page.getByRole('textbox').first().fill(searchTerm2);
       await page.keyboard.press('Enter');
-      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => {});      
+      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => { });
       const firstRow2 = page.locator('.ag-center-cols-container .ag-row[row-index="0"]');
       await firstRow2.waitFor({ state: 'visible', timeout: 30000 });
-      await page.getByLabel('Press Space to toggle all').check({timeout:90000});
+      await page.getByLabel('Press Space to toggle all').check({ timeout: 90000 });
       await page.waitForTimeout(300); // Wait after checkbox
-      await page.locator('a').filter({ hasText: 'Notes' }).click({timeout:90000});
+      await page.locator('a').filter({ hasText: 'Notes' }).click({ timeout: 90000 });
       const start2 = Date.now();
       await expect(page.locator('.ag-cell[col-id="note_text"] span').first()).toContainText(/\S/, { timeout: 30000 });
       const loadTimeMs2 = Date.now() - start2;
@@ -138,17 +138,17 @@ credentials.users.forEach((user, index) => {
       //Customer group 4
       await page.getByText('All customer groups').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All customer groups');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 60000});
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 60000 });
       const searchTerm3 = 'COMPASS-D';
       await page.getByRole('textbox').first().click({ timeout: 10000 });
       await page.getByRole('textbox').first().fill(searchTerm3);
       await page.keyboard.press('Enter');
-      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => {});      
+      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => { });
       const firstRow3 = page.locator('.ag-center-cols-container .ag-row[row-index="0"]');
       await firstRow3.waitFor({ state: 'visible', timeout: 30000 });
-      await page.getByLabel('Press Space to toggle all').check({timeout:90000});
+      await page.getByLabel('Press Space to toggle all').check({ timeout: 90000 });
       await page.waitForTimeout(300); // Wait after checkbox
-      await page.locator('a').filter({ hasText: 'Notes' }).click({timeout:90000});
+      await page.locator('a').filter({ hasText: 'Notes' }).click({ timeout: 90000 });
       const start3 = Date.now();
       await expect(page.locator('.ag-cell[col-id="note_text"] span').first()).toContainText(/\S/, { timeout: 30000 });
       const loadTimeMs3 = Date.now() - start3;
@@ -159,17 +159,17 @@ credentials.users.forEach((user, index) => {
       //Customer group 5
       await page.getByText('All customer groups').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All customer groups');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 60000});
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 60000 });
       const searchTerm4 = 'GREENKING-D';
       await page.getByRole('textbox').first().click({ timeout: 10000 });
       await page.getByRole('textbox').first().fill(searchTerm4);
       await page.keyboard.press('Enter');
-      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => {});      
+      await page.locator('.ag-overlay-loading-center').waitFor({ state: 'hidden', timeout: 30000 }).catch(() => { });
       const firstRow4 = page.locator('.ag-center-cols-container .ag-row[row-index="0"]');
       await firstRow4.waitFor({ state: 'visible', timeout: 30000 });
-      await page.getByLabel('Press Space to toggle all').check({timeout:90000});
+      await page.getByLabel('Press Space to toggle all').check({ timeout: 90000 });
       await page.waitForTimeout(300); // Wait after checkbox
-      await page.locator('a').filter({ hasText: 'Notes' }).click({timeout:90000});
+      await page.locator('a').filter({ hasText: 'Notes' }).click({ timeout: 90000 });
       const start4 = Date.now();
       await expect(page.locator('.ag-cell[col-id="note_text"] span').first()).toContainText(/\S/, { timeout: 30000 });
       const loadTimeMs4 = Date.now() - start4;
@@ -177,7 +177,6 @@ credentials.users.forEach((user, index) => {
       await page.locator('a').filter({ hasText: 'Cancel' }).click({ timeout: 90000 });
       await page.locator('a.close-window').click();
 
-});
-});
-
+    });
+  });
 });

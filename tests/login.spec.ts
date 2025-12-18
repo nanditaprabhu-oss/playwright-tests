@@ -6,7 +6,7 @@ const { url } = credentials;
 credentials.users.forEach((user, index) => {
   const { username, password } = user;
 
-  test(`UK CreditNext Performance Test No:5 - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
+  test(`Login screen test - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
     test.setTimeout(60000);
 
     // Random wait before starting the test not required.
@@ -18,7 +18,7 @@ credentials.users.forEach((user, index) => {
     await test.step('Login operations', async () => {
       await page.goto(url);
 
-     // Only works with 2.6.x
+      // Only works with 2.6.x
       await page.getByRole('combobox').click();
 
       await test.step('Change login language', async () => {
@@ -104,9 +104,9 @@ credentials.users.forEach((user, index) => {
 
 
 
-    
+
     // Start a new test step named 'Change positions of columns'.
-      await test.step('Change positions of columns', async () => {
+    await test.step('Change positions of columns', async () => {
 
       // Define a locator for the element that contains the text "Debtor name".
       const debtorNameElement = page.getByText('Debtor name');
@@ -153,8 +153,8 @@ credentials.users.forEach((user, index) => {
 
       // End the 'Change positions of columns' test step.
 
-      
+
     });
-    
+
   });
 });

@@ -6,14 +6,14 @@ const { url } = credentials;
 credentials.users.forEach((user, index) => {
   const { username, password } = user;
 
-  test(`Change Usergroup on Home screen tests - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
+  test(`Change Usergroup on Home screen and check loading of lists screens - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
     test.setTimeout(200000);
 
 
     await test.step('Login operations', async () => {
       await page.goto(url);
 
-     // Only works with 2.6.x
+      // Only works with 2.6.x
       await page.getByRole('combobox').click();
 
       await test.step('Change login language', async () => {
@@ -60,8 +60,8 @@ credentials.users.forEach((user, index) => {
     // });
 
     // Start a new test step named 'Is the list visible?'.
-      await test.step('Is the list visible?', async () => {
-      
+    await test.step('Is the list visible?', async () => {
+
       // Find an 'a' (link) element with the exact text "Debtors" (using a regular expression for an exact match).
       const debtorsLink = page.locator('a').filter({ hasText: /^Debtors$/ });
 
@@ -72,33 +72,33 @@ credentials.users.forEach((user, index) => {
       // Click on the Debtors menu
       await debtorsLink.click({ timeout: 12000, force: true });
       const startTime = Date.now();
-       //Open All debtors list screen
+      //Open All debtors list screen
       await page.getByText('All debtors').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All debtors');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 120000});
-      const loadTimeMs = Date.now() - startTime; 
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 120000 });
+      const loadTimeMs = Date.now() - startTime;
       console.log(`All Debtors loading time ${loadTimeMs} ms`);
       await page.locator('a.close-window').click();
 
-    //Change the usergroup
+      //Change the usergroup
 
-    const userGroup = page.locator('#userGroup');
+      const userGroup = page.locator('#userGroup');
 
-    await userGroup.waitFor({ state: 'visible', timeout: 60000 });
+      await userGroup.waitFor({ state: 'visible', timeout: 60000 });
 
-    const options = await page.locator('#userGroup option').count();
+      const options = await page.locator('#userGroup option').count();
 
-// Skip first option if it’s default
-    await userGroup.selectOption({ index: 1 });
+      // Skip first option if it’s default
+      await userGroup.selectOption({ index: 1 });
 
-    try {
-        await page.waitForURL(/.*\/CreditNext\/root.*/, { timeout: 30000 });
-      } 
-    catch (error) {
+      try {
+        await page.waitForURL(/.*\/CreditNext\/root.*/, { timeout: 60000 });
+      }
+      catch (error) {
         throw new Error('Login procedure failed. Not redirected to /CreditNext/root as expected.');
       };
 
-  // Find an 'a' (link) element with the exact text "Debtors" (using a regular expression for an exact match).
+      // Find an 'a' (link) element with the exact text "Debtors" (using a regular expression for an exact match).
 
       const debtorsLink1 = page.locator('a').filter({ hasText: /^Debtors$/ });
 
@@ -109,17 +109,17 @@ credentials.users.forEach((user, index) => {
       // Click on the Debtors menu
       await debtorsLink.click({ timeout: 12000, force: true });
       const startTimenew = Date.now();
-       //Open All debtors list screen
+      //Open All debtors list screen
       await page.getByText('All debtors').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All debtors');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 120000});
-      const loadTimeMsnew = Date.now() - startTimenew; 
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 120000 });
+      const loadTimeMsnew = Date.now() - startTimenew;
       console.log(`All Debtors loading time after usergroup change ${loadTimeMsnew} ms`);
       await page.locator('a.close-window').click();
 
       await debtorsLink.click({ timeout: 5000 });
 
-       // Wait for the Invoices button to be visible
+      // Wait for the Invoices button to be visible
       const invoicesLink = page.locator('a').filter({ hasText: /^Invoices$/ });
       await invoicesLink.waitFor({ state: 'visible', timeout: 20000 }); // 20000
       await page.waitForTimeout(5000);
@@ -127,9 +127,9 @@ credentials.users.forEach((user, index) => {
       //Change usergroup
       await page.locator('#userGroup option').count();
 
-     // Skip first option if it’s default
+      // Skip first option if it’s default
       await userGroup.selectOption({ index: 2 });
-     // Find an 'a' (link) element with the exact text "Debtors" (using a regular expression for an exact match).
+      // Find an 'a' (link) element with the exact text "Debtors" (using a regular expression for an exact match).
       const debtorsLink2 = page.locator('a').filter({ hasText: /^Debtors$/ });
 
       // Wait for the Debtors button to be visible
@@ -139,16 +139,15 @@ credentials.users.forEach((user, index) => {
       // Click on the Debtors menu
       await debtorsLink.click({ timeout: 12000, force: true });
       const startTimenew2 = Date.now();
-       //Open All debtors list screen
+      //Open All debtors list screen
       await page.getByText('All debtors').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All debtors');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 120000});
-      const loadTimeMsnew2 = Date.now() - startTimenew2; 
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 120000 });
+      const loadTimeMsnew2 = Date.now() - startTimenew2;
       console.log(`All Debtors loading time after usergroup back to original ${loadTimeMsnew2} ms`);
       await page.locator('a.close-window').click();
 
-      });
-    
+    });
+
   });
 });
-

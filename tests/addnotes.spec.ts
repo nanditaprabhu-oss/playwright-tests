@@ -13,7 +13,7 @@ credentials.users.forEach((user, index) => {
     await test.step('Login operations', async () => {
       await page.goto(url);
 
-     // Only works with 2.6.x
+      // Only works with 2.6.x
       await page.getByRole('combobox').click();
 
       await test.step('Change login language', async () => {
@@ -60,9 +60,9 @@ credentials.users.forEach((user, index) => {
     // });
 
     // Start a new test step named 'Is the list visible?'.
-      await test.step('Is the list visible?', async () => {
+    await test.step('Add Notes', async () => {
 
-      
+
       // Find an 'a' (link) element with the exact text "Debtors" (using a regular expression for an exact match).
       const debtorsLink = page.locator('a').filter({ hasText: /^Debtors$/ });
 
@@ -76,7 +76,7 @@ credentials.users.forEach((user, index) => {
       //Open All debtors list screen
       await page.getByText('All debtors').first().click({ timeout: 5000 });
       await expect(page.locator('.window-title-text')).toHaveText('All debtors');
-      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({state: 'visible',timeout: 60000});
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 60000 });
       const cellLocator = page.getByRole('gridcell').filter({ hasText: /.+/ });
 
       // Assert that at least one gridcell with content is visible on the page.
@@ -99,11 +99,11 @@ credentials.users.forEach((user, index) => {
 
       await page.locator('a').filter({ hasText: 'Cancel' }).click({ timeout: 90000 });
 
-        });
-
-
-      
-      });
     });
-  
-  
+
+
+
+  });
+});
+
+

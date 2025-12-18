@@ -6,7 +6,7 @@ const { url } = credentials;
 credentials.users.forEach((user, index) => {
   const { username, password } = user;
 
-  test(`Scroll through history - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
+  test(`Scroll through history of letters,emails,commitedpayment,paymentscheme and disputes - User: ${username} (${index + 1}/${credentials.users.length})`, async ({ page }) => {
     test.setTimeout(200000);
 
 
@@ -82,9 +82,9 @@ credentials.users.forEach((user, index) => {
 
       for (let i = 1; i < totalPages; i++) {
         // common action
-        await expect(nextButton).toBeEnabled({ timeout: 60000 });
+        await page.waitForSelector('.ag-header-cell[col-id="letter_name"]:not([aria-hidden="true"])', { timeout: 40000 });
         await nextButton.click();
-        await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
+        //await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
       }
       await page.locator('a.btn-box.close-window', { hasText: 'x' }).last().click();
 
@@ -99,11 +99,10 @@ credentials.users.forEach((user, index) => {
       const totalPages = Number(totalPagesText?.replace('/', '').trim());
       // Select the Next button
       const nextButton = page.getByLabel('Page navigation', { exact: true }).getByLabel('Next');
-
       for (let i = 1; i < totalPages; i++) {
-        await expect(nextButton).toBeEnabled({ timeout: 60000 });
+        await page.waitForSelector('.ag-header-cell[col-id="date_send"]:not([aria-hidden="true"])', { timeout: 10000 });
         await nextButton.click();
-        await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
+        //await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
       }
       await page.locator('a.btn-box.close-window', { hasText: 'x' }).last().click();
     });
@@ -115,19 +114,20 @@ credentials.users.forEach((user, index) => {
       // Get total pages from "/11"
       const totalPagesText = await page.locator('span.selected-debtors-number').textContent();
       const totalPages = Number(totalPagesText?.replace('/', '').trim());
-
       // Select the Next button
       const nextButton = page.getByLabel('Page navigation', { exact: true }).getByLabel('Next');
 
       for (let i = 1; i < totalPages; i++) {
-        await expect(nextButton).toBeEnabled({ timeout: 60000 });
+        await page.waitForSelector('.ag-header-cell[col-id="committed_payment_state"]:not([aria-hidden="true"])', { timeout: 10000 });
         await nextButton.click();
-        await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
+        //await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
       }
       await page.locator('a.btn-box.close-window', { hasText: 'x' }).last().click();
     });
 
-       await test.step('Scroll through payment scheme history', async () => {
+
+
+    await test.step('Scroll through payment scheme history', async () => {
 
       await page.getByLabel('Press Space to toggle all').check({ timeout: 90000 });
       await page.locator('a').filter({ hasText: 'History payment schemes' }).click({ timeout: 90000 });
@@ -139,10 +139,11 @@ credentials.users.forEach((user, index) => {
       // Select the Next button
       const nextButton = page.getByLabel('Page navigation', { exact: true }).getByLabel('Next');
 
+
       for (let i = 1; i < totalPages; i++) {
-        await expect(nextButton).toBeEnabled({ timeout: 100000 });
+        await page.waitForSelector('.ag-header-cell[col-id="payment_scheme_state"]:not([aria-hidden="true"])', { timeout: 10000 });
         await nextButton.click();
-        await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
+        //await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 30_000 }).catch(() => { });
       }
       await page.locator('a.btn-box.close-window', { hasText: 'x' }).last().click();
     });
@@ -161,13 +162,11 @@ credentials.users.forEach((user, index) => {
       const nextButton = page.getByLabel('Page navigation', { exact: true }).getByLabel('Next');
 
       for (let i = 1; i < totalPages; i++) {
-        await expect(nextButton).toBeEnabled({ timeout: 60000 });
+        await expect(page.locator('.ag-header-cell[col-id="query_number"]')).toBeVisible();
         await nextButton.click();
-        await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
+        //await page.locator('.ag-overlay-loading-center').waitFor({ state: 'visible', timeout: 10_000 }).catch(() => { });
       }
       await page.locator('a.btn-box.close-window', { hasText: 'x' }).last().click();
     });
   });
 });
-
-
