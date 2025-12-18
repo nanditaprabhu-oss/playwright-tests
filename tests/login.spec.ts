@@ -155,6 +155,23 @@ credentials.users.forEach((user, index) => {
 
 
     });
+    // Start a new test step named 'Change positions of columns'.
+    await test.step('Sort column', async () => {
+      await page.pause();
+      await page.locator('a[title="Invert sort order"]').filter({ hasText: 'Debtor number' }).click();
+      const startTime1 = Date.now();
+      await expect(page.locator('.window-title-text')).toHaveText('Debtors with outstanding invoices');
+      await page.locator('.ag-center-cols-container .ag-row').first().waitFor({ state: 'visible', timeout: 120000 });
+      const loadTimeMs1 = Date.now() - startTime1;
+      console.log(`Debtors with outstanding loading time ${loadTimeMs1} ms`);
+      await page.locator('a.close-window').click();
+
+
+
+
+
+    });
+
 
   });
 });
